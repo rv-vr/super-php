@@ -1,16 +1,14 @@
 {
   "functions": {
     "api/**/*.php": {
-      "runtime": "vercel-php@0.7.3" // Or the latest version
+      "runtime": "vercel-php@0.7.3"
     }
   },
   "routes": [
-    // Route for login.php directly
     {
       "src": "/login.php",
       "dest": "/api/login.php"
     },
-    // Routes for specific module entry points
     {
       "src": "/src/pos/index.php",
       "dest": "/api/src/pos/index.php"
@@ -32,8 +30,6 @@
       "src": "/public/(.*)",
       "dest": "/public/$1"
     },
-    // Default route for the main index.php (the router)
-    // This should be the LAST route, as it catches everything else
     {
       "src": "/(.*)",
       "dest": "/api/index.php"

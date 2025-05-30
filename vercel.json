@@ -1,10 +1,39 @@
 {
   "functions": {
     "api/**/*.php": {
-      "runtime": "vercel-php@0.7.3"
+      "runtime": "vercel-php@0.7.3" // Or the latest version
     }
   },
   "routes": [
+    // Route for login.php directly
+    {
+      "src": "/login.php",
+      "dest": "/api/login.php"
+    },
+    // Routes for specific module entry points
+    {
+      "src": "/src/pos/index.php",
+      "dest": "/api/src/pos/index.php"
+    },
+    {
+      "src": "/src/inventory/index.php",
+      "dest": "/api/src/inventory/index.php"
+    },
+    {
+      "src": "/src/manager/index.php",
+      "dest": "/api/src/manager/index.php"
+    },
+    {
+      "src": "/src/vendor/index.php",
+      "dest": "/api/src/vendor/index.php"
+    },
+    // Route for static assets
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
+    },
+    // Default route for the main index.php (the router)
+    // This should be the LAST route, as it catches everything else
     {
       "src": "/(.*)",
       "dest": "/api/index.php"

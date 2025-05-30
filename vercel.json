@@ -25,7 +25,6 @@
       "src": "/src/vendor/index.php",
       "dest": "/api/src/vendor/index.php"
     },
-    // Route for static assets
     {
       "src": "/public/(.*)",
       "dest": "/public/$1"
